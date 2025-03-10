@@ -1,13 +1,14 @@
-package com.example.myprojectadvance1.data.retrofit
+package com.example.myprojectadvance1.data.remote.retrofit
 
-import com.example.myprojectadvance1.data.respone.ListEventResponse
+import com.example.myprojectadvance1.data.remote.respone.ListEventResponse
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
 
     @GET("events")
-    fun getListEvent(): ListEventResponse
+    fun getListEvent(): Call<ListEventResponse>
 
     @GET("events/{id}")
     fun getDetailEvent(@Path("id") id: String): ListEventResponse
