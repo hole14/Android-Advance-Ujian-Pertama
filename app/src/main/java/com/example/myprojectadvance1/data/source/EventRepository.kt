@@ -65,7 +65,7 @@ class EventRepository private constructor(
             }
 
         })
-        val localData = eventDao.getEvents()
+        val localData = eventDao.getTopRatedEvents()
         result.addSource(localData) { newData: List<EventEntity> ->
             result.value = Result.Success(newData)
         }
