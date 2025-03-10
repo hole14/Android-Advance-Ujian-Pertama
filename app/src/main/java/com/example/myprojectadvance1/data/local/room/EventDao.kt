@@ -22,6 +22,9 @@ interface EventDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertEvents(events: List<EventEntity>)
 
+    @Query("SELECT * FROM event ORDER BY registrants DESC LIMIT 10")
+    fun getTopRatedEvents(): LiveData<List<EventEntity>>
+
     @Update
     fun updateEvent(event: EventEntity)
 
