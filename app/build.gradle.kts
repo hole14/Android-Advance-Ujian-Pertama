@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -71,6 +72,7 @@ dependencies {
 
     //Glide
     implementation(libs.glide)
+    implementation(libs.circleimageview)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
