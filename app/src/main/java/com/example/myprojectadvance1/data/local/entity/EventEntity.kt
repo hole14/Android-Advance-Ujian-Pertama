@@ -1,9 +1,12 @@
 package com.example.myprojectadvance1.data.local.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "event")
 data class EventEntity(
 
@@ -52,4 +55,4 @@ data class EventEntity(
 
     @field:ColumnInfo(name = "isFavorited")
     var isFavorited: Boolean
-)
+): Parcelable
