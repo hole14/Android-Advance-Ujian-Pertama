@@ -21,6 +21,8 @@ class EventAdapter(private val onBookmarkClick: (EventEntity) -> Unit): ListAdap
             binding.tvItemTitle.text = event.name
             binding.tvItemPublishedDate.text = event.beginTime + " - " + event.endTime
             binding.tvItemSummary.text = event.summary
+            binding.tvItemQouta.text = "Qouta " + event.quota.toString() + " Orang"
+            binding.tvItemRegister.text = "Terdaftar " + event.registrants.toString() + " Orang"
             Glide.with(itemView.context)
                 .load(event.mediaCover)
                 .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
@@ -28,6 +30,8 @@ class EventAdapter(private val onBookmarkClick: (EventEntity) -> Unit): ListAdap
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DeskripsiFavoriteActivity::class.java)
+                intent.putExtra(DeskripsiFavoriteActivity.EXTRA_EVENT, event)
+                intent.putExtra(DeskripsiFavoriteActivity.SOURCE_PAGE, "favorite")
                 itemView.context.startActivity(intent)
             }
         }
